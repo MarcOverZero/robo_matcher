@@ -1,0 +1,13 @@
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="nav nav-custom">
+      <div><%= link_to "All Users", users_path, class: 'nav-link' %></div>
+      <% if current_user %>
+        <div><%= link_to "Logout", destroy_user_session_path, class: 'nav-link', method: :delete %></div>
+      <% else  %>
+        <div><%= link_to "Register", new_user_registration_path, class: 'nav-link' %></div>
+        <div><%= link_to "Login", new_user_session_path, class: 'nav-link' %></div>
+        <% end  %>
+    </nav>
+  </div>
+</div>
