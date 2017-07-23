@@ -9,14 +9,20 @@
   </head>
 
   <body>
-    <% if current_user %>
-       <p>I'm signed in</p>
-      <% else %>
-      <p>I'm not signed in</p>
-      <% end %>
-    <% flash.each do |name, msg| %>
-       <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <div class="masthead">
+
+        <%= render "shared/navbar" %>
+
+        <% flash.each do |name, msg| %>
+           <%= content_tag :div, msg, :id => "flash_#{name}" %>
+           <% end %>
+
+        <%= yield %>
+
+        <%= render "shared/footer" %>
+
+      </div>
+    </div>
   </body>
 </html>
