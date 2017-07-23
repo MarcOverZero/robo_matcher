@@ -19,8 +19,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 ############
 gem 'devise', '~> 4.3'
-
-############
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
