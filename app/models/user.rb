@@ -9,5 +9,9 @@ class User < ApplicationRecord
 
   has_many :converastions
 
-  
+
+  def self.show_message_history
+    
+  end
+
 end

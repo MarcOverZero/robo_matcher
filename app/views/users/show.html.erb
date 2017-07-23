@@ -1,3 +1,10 @@
 Welcome to <%= @user.name %>'s profile!
 </br>
-<%= link_to "Message me!", conversation_path(@user)%>
+
+
+Message history with <%= @user.name %>
+
+<% @messages.sort_by(&:created_at).each do |message| %>
+<%= message.user.name %>:
+<%= message.body %></br>
+<% end %>

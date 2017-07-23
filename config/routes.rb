@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   ####
   root to: "users#index"
   resources :conversation do
-    resources :users
+    resources :users, only: [:new, :create]
   end
 
+  resources :users, except: [:new, :create]
 
 end
