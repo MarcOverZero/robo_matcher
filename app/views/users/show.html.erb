@@ -1,12 +1,28 @@
 Welcome to <%= @user.name %>'s profile!
 </br>
 
+<div class="">
+  Message history with <%= @user.name %>
+  
+    <% @message_history.sort_by(&:created_at).each do |message| %>
+    <i><%= message.created_at.to_formatted_s(:short) %></i>
+    <strong><%= message.user.name %>: </strong>
+    <%= message.body %>
+  </br>
+  <% end %>
+  </br>
+  </br>
+  </br>
 
-Message history with <%= @user.name %>
+  <%= form_for [@user, @message]  do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
+  <%= f.hidden_field :recipient_id, :value => @user.id %>
+  <% f.label :body %>
+  <%= f.text_area :body %>
 
-<% @messages.sort_by(&:created_at).each do |message| %>
-<%= message.created_at.to_formatted_s(:short) %>
-<strong><%= message.user.name %></strong> :
-<%= message.body %>
-</br>
-<% end %>
+
+
+  <%= f.submit  class: "btn btn-primary"%>
+  <% end %>
+
+</div>

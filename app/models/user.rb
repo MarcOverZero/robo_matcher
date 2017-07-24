@@ -7,11 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :converastions
-
-
-  def self.show_message_history
-    
-  end
+  has_many :messages
 
 end
