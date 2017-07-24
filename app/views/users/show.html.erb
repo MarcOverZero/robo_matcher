@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to <%= @user.name %>'s message board!</h1>
 </br>
 
-<p>Link to <%= link_to "#{@user.name}'s' profile",
-  user_profile_path(@user, @user.profile) %></p>
+<p><%= link_to "Link to #{@user.name}'s' profile",
+  user_profile_path(@user, @user.profile) if @user.profile.present? %></p>
 
   <div class="jumbotron">
     <div class="container-fluid">

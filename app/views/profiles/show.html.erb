@@ -4,18 +4,20 @@
         <%= image_tag "https://robohash.org/#{@user.name}" %>
         <div class="card-block">
           <h3><%= @user.name %></h3>
-          <p class="card-text"><strong>Age:</strong> <%= @profile.age %></p>
-          <p class="card-text"><strong>Classification:</strong> <%= @profile.classification %></p>
-          <p class="card-text"><strong>Body Type:</strong> <%= @profile.body_type %></p>
-          <p class="card-text"><strong>Location:</strong> <%= @profile.location %></p>
-        </div>
-      </div>
-
-        <p></p>
-          <div class="col-md-9">
-            <div class="jumbotron">
-              <h4>Interests</h4>
-              <p class="card-text"><%= @profile.interest %></p>
+          <% if @user.profile.present?  %>
+              <p class="card-text"><strong>Age:</strong> <%= @profile.age %></p>
+              <p class="card-text"><strong>Classification:</strong> <%= @profile.classification %></p>
+              <p class="card-text"><strong>Body Type:</strong> <%= @profile.body_type %></p>
+              <p class="card-text"><strong>Location:</strong> <%= @profile.location %></p>
             </div>
-        </div>
+          </div>
+
+            <p></p>
+              <div class="col-md-9">
+                <div class="jumbotron">
+                  <h4>Interests</h4>
+                  <p class="card-text"><%= @profile.interest %></p>
+                </div>
+                <% end %>
+            </div>
 </div>
