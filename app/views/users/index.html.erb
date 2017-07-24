@@ -1,12 +1,16 @@
-<h1>Chat up your match!</h1>
 
-<h3>membership:</h3>
+<h3 align="center">Chat up your robo match!</h3>
 
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
-    <%=link_to "#{user.name}", user_path(user) %>'s profile
-  <% end %>
-<% end %>
-
-</br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<hr>
+<div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-md-4">
+        <% if user.id != current_user.id %>
+        <h5>Check out <%=link_to "#{user.name}", user_path(user) %>'s profile</h5>
+        <% end %>
+      </div>
+      <% end %>
+``  </div>
+  </div>
+</div>

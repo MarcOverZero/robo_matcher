@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   validates_presence_of :name
   validates :email, presence: true, uniqueness: true
 
@@ -9,9 +7,6 @@ class User < ApplicationRecord
 
   has_many :converastions
 
-
-  def self.show_message_history
-    
-  end
+  has_one :profile, dependent: :destroy
 
 end
