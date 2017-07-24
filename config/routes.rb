@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create]
   end
 
-  resources :users, except: [:new, :create]
+  resources :users, except: [:new, :create] do
+    resources :profiles
+  end
 
 end

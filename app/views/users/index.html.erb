@@ -1,12 +1,24 @@
-<h1>Chat up your match!</h1>
+<div class="container">
 
-<h3>membership:</h3>
+  <h3 align="center">Chat up your robo match!</h3>
 
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
-    <%=link_to "#{user.name}", user_path(user) %>'s profile
-  <% end %>
-<% end %>
+  <hr>
 
-</br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-4">
+        <div class="card card-outline-info mb-3 text-center">
+          <div class="card-block">
+              <p><%= image_tag "https://robohash.org/#{user.name}"  %></p>
+                <% if user.id != current_user.id %>
+                <%=link_to "Check out #{user.name}'s profile", user_profile_path(user, user.profile.id),
+                    class: "btn btn-primary btn-lg btn-block" %></br>
+                  <%=link_to "Message #{user.name}",  user_path(user),
+                          class: "btn btn-info btn-lg btn-block" %></br>
+              <% end %>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
