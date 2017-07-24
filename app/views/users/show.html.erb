@@ -5,6 +5,8 @@ Welcome to <%= @user.name %>'s profile!
 Message history with <%= @user.name %>
 
 <% @messages.sort_by(&:created_at).each do |message| %>
-<%= message.user.name %>:
-<%= message.body %></br>
+<%= message.created_at.to_formatted_s(:short) %>
+<strong><%= message.user.name %></strong> :
+<%= message.body %>
+</br>
 <% end %>
