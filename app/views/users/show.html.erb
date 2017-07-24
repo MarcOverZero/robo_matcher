@@ -1,10 +1,16 @@
-Welcome to <%= @user.name %>'s profile!
+<h1 align="center">Welcome to <%= @user.name %>'s message board!</h1>
 </br>
 
+<p>Link to <%= link_to "#{@user.name}'s' profile",
+  user_profile_path(@user, @user.profile) %></p>
 
-Message history with <%= @user.name %>
+  <div class="jumbotron">
+    <div class="container-fluid">
+    Message history with <%= @user.name %>
 
-<% @messages.sort_by(&:created_at).each do |message| %>
-<%= message.user.name %>:
-<%= message.body %></br>
-<% end %>
+    <% @messages.sort_by(&:created_at).each do |message| %>
+    <%= message.user.name %>:
+    <%= message.body %></br>
+    <% end %>
+  </div>
+</div>
