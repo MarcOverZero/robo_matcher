@@ -1,16 +1,32 @@
 <h1 align="center">Welcome to <%= @user.name %>'s message board!</h1>
 </br>
 
+<div class="">
 <p>Link to <%= link_to "#{@user.name}'s' profile",
   user_profile_path(@user, @user.profile) %></p>
 
-  <div class="jumbotron">
+<div class="jumbotron">
     <div class="container-fluid">
-    Message history with <%= @user.name %>
-
-    <% @messages.sort_by(&:created_at).each do |message| %>
-    <%= message.user.name %>:
-    <%= message.body %></br>
-    <% end %>
+    <% @message_history.sort_by(&:created_at).each do |message| %>
+    <i><%= message.created_at.to_formatted_s(:short) %></i>
+    <strong><%= message.user.name %>: </strong>
+    <%= message.body %>
+  </br>
+  <% end %>
   </div>
 </div>
+  
+  </br>
+  </br>
+  </br>
+
+  <%= form_for [@user, @message]  do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
+  <%= f.hidden_field :recipient_id, :value => @user.id %>
+  <% f.label :body %>
+  <%= f.text_area :body %>
+
+
+
+  <%= f.submit  class: "btn btn-primary"%>
+  <% end %>
