@@ -8,28 +8,7 @@
 
       <div class="col-md-6">
 
-      <%= form_for [@user, @profile] do |f| %>
-
-      <%= f.label :photo %>:
-      <%= f.text_field :photo %></br>
-
-      <%= f.label :location %>:
-      <%= f.text_field :location %></br>
-
-      <%= f.label :classification %>:
-      <%= f.text_field :classification %></br>
-
-      <%= f.label :age %>:
-      <%= f.text_field :age %></br>
-
-      <%= f.label :body_type %>:
-      <%= f.text_field :body_type %></br>
-
-      <%= f.label :interest %>:
-      <%= f.text_area :interest %></br>
-
-      <%= f.submit "Create Profile", class: "btn btn-primary" %>
-      <% end %>
+      <%= render partial: 'form' %>
     </div>
 
     </div>

@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @profiles = @users.profile
+    @profiles = @user.profile
   end
 
   def new

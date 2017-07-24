@@ -12,7 +12,7 @@ Profile.destroy_all
   profile = Profile.create!(
     photo: "https://robohash.org#{i}",
     location: Faker::Space.star,
-    interest: Faker::Lorem.paragraph,
+    interest: Faker::Lorem.paragraph(6),
     classification: Faker::Space.galaxy,
     age: Faker::Number.between(66, 765),
     body_type: Faker::Measurement.weight,
