@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :create] do
     resources :messages, only: [:create]
+    resources :profiles
   end
+
 end
